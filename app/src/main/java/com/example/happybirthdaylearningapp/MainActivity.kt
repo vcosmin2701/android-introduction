@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,7 +44,10 @@ class MainActivity : ComponentActivity() {
                      */
 
                     // Practice 1
-                    ArticlePage()
+                    // ArticlePage()
+
+                    // Practice 2
+                    TaskManager()
                 }
             }
         }
@@ -131,6 +135,33 @@ fun ArticlePage(modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun TaskManager() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val image = painterResource(R.drawable.ic_task_completed)
+
+        Image(
+            painter = image,
+            contentDescription = "Big green circle with a blue checkmark inside"
+        )
+
+        Text(
+            text = stringResource(R.string.all_tasks_completed),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(top = 24.dp, bottom = 8.dp)
+        )
+
+        Text(
+            text = stringResource(R.string.nice_work),
+            fontSize = 16.sp
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -144,6 +175,9 @@ fun GreetingPreview() {
         )*/
 
         // Practice exercise 1
-        ArticlePage()
+        // ArticlePage()
+
+        // Practice exercise 2
+        TaskManager()
     }
 }
