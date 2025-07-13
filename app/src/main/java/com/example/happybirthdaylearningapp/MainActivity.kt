@@ -35,10 +35,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    /*
                     GreetingImage(
                         message = stringResource(R.string.happy_birthday_text),
                         from = stringResource(R.string.signature_text)
                     )
+                     */
+
+                    // Practice 1
+                    ArticlePage()
                 }
             }
         }
@@ -91,15 +96,54 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
     }
 }
 
+@Composable
+fun ArticlePage(modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+    ) {
+        val image = painterResource(R.drawable.bg_compose_background)
+
+        Image(
+            painter = image,
+            contentDescription = null
+        )
+
+        Text(
+            text = stringResource(R.string.article_title),
+            fontSize = 24.sp,
+            modifier = Modifier.padding(16.dp)
+        )
+
+        Text(
+            text = stringResource(R.string.article_introduction),
+            textAlign = TextAlign.Justify,
+            modifier = Modifier
+                .padding(start = 16.dp, end = 16.dp)
+        )
+
+        Text(
+            text = stringResource(R.string.article_content),
+            textAlign = TextAlign.Justify,
+            modifier = Modifier
+                .padding(16.dp)
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     HappyBirthdayLearningAppTheme {
         //GreetingText(message = "Happy birthday, Android!", from = "From Emma")
 
+        /*
         GreetingImage(
             message = stringResource(R.string.happy_birthday_text),
             from = stringResource(R.string.signature_text)
-        )
+        )*/
+
+        // Practice exercise 1
+        ArticlePage()
     }
 }
